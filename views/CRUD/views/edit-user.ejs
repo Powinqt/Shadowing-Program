@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('includes/head') %>
+<body>
+    <h1>Edit User</h1>
+    <form action="/edit-user" method="POST">
+        <input type="hidden" name="id" value="<%= user.id %>">
+        <input type="text" name="username" value="<%= user.name %>" required>
+        <button type="submit">Save</button>
+    </form>
+    <a href="/users">Back to Users</a>
+<%- include('includes/footer') %>
+</body>
+</html>

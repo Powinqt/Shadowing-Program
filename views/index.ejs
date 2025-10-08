@@ -1,0 +1,23 @@
+<%- include('includes/head') %>
+<body>
+    <h1>Products</h1>
+    <a href="/add-product">Add Product</a>
+    <div class="grid">
+        <% if (products.length > 0) { %>
+            <% products.forEach(product => { %>
+                <div class="card">
+                    <h2><%= product.title %></h2>
+                    <img src="<%= product.imageUrl %>" alt="<%= product.title %>" width="150">
+                    <p><%= product.description %></p>
+                    <p>$<%= product.price %></p>
+                    <a href="/edit/<%= product.id %>">Edit</a>
+                    <form action="/delete/<%= product.id %>" method="POST" style="display:inline">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No products</p>
+        <% } %>
+    </div>
+<%- include('includes/end') %>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('includes/head') %>
+<body>
+    <h1>Users</h1>
+    <ul>
+        <% users.forEach(user => { %>
+            <li>
+                <%= user.name %>
+                <a href="/edit-user/<%= user.id %>">Edit</a>
+                <form action="/delete-user" method="POST" style="display:inline;">
+                    <input type="hidden" name="id" value="<%= user.id %>">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+    <a href="/">Add New User</a>
+<%- include('includes/footer') %>
+</body>
+</html>
